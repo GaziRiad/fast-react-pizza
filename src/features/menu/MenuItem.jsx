@@ -6,8 +6,6 @@ import { addItem, increaseItemQuantity } from "../cart/cartSlice";
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const { cart } = useSelector((store) => store.cart);
-  console.log(cart);
-
   const dispatch = useDispatch();
   function handleAddToCart() {
     if (cart.find((item) => item.pizzaId === id)) {

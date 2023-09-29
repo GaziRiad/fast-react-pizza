@@ -32,7 +32,6 @@ function Cart() {
   const cart = fakeCart;
 
   const { username } = useSelector((store) => store.user);
-
   return (
     <div className="px-4 py-3">
       <LinkButton to="/menu">&larr; Back to menu</LinkButton>
