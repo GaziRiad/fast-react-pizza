@@ -16,6 +16,8 @@ const isValidPhone = (str) =>
   );
 
 function CreateOrder() {
+  const formErrors = useActionData();
+
   const [withPriority, setWithPriority] = useState(false);
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -25,8 +27,6 @@ function CreateOrder() {
 
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-
-  const formErrors = useActionData();
 
   const {
     username,
@@ -130,7 +130,7 @@ function CreateOrder() {
             }
           />
 
-          <Button disabled={isSubmitting || !isLoadingAddress} type="primary">
+          <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? "Placing order..."
               : `Order now ${formatCurrency(totalPrice)}`}
